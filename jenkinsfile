@@ -18,7 +18,7 @@ pipeline {
             steps {
                 sh '''
                 #apply kubectl
-                cd /'EKS files' 
+                cd 'EKS files'/ 
                 kubectl apply -f ns.yaml
                 '''
             }
