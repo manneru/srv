@@ -21,12 +21,6 @@ pipeline {
                 kubectl apply -f ns.yaml
                 '''
             }
-        }
-        stage('validation') {
-            steps {
-                #apply kubectl
-                kubectl get po -A
-            }
         }               
     }   
 }
