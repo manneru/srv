@@ -18,6 +18,7 @@ pipeline {
             steps {
                 sh '''
                 #apply kubectl
+                cd k8s/
                 kubectl apply -f ns.yaml
                 '''
             }
