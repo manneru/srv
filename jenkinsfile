@@ -12,8 +12,6 @@ pipeline {
                 #push image to ecr
                 docker push 821151021325.dkr.ecr.ap-south-1.amazonaws.com/apache:$BUILD_NUMBER
                 '''
-
-
             }
         }
         stage('Eks deploy') {
