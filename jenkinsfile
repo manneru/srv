@@ -4,21 +4,17 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                #docker build
                 sudo docker build -t 821151021325.dkr.ecr.ap-south-1.amazonaws.com/static-apache:$BUILD_NUMBER .
-                #login to ecr
                 aws ecr get-login-password --region ap-south-1 | sudo docker login --username AWS --password-stdin 821151021325.dkr.ecr.ap-south-1.amazonaws.com
-                #push image to ecr
-                sudo docker push 821151021325.dkr.ecr.ap-south-1.amazonaws.com/static-apache:$BUILD_NUMBER   
+                sudo docker push 821151021325.dkr.ecr.ap-south-1.amazonaws.com/static-apache:$BUILD_NUMBER
             }
         }
-        stage('Eks deploy') {
-            steps {
-                #apply kubectl 
+        stage('eks deploy'){
+            steps{
                 cd 'EKS files'/
-                kubectl apply -f deployment.yaml service.yaml  ingress.yaml namespace.yaml
+                kubectl apply -f deployment.yaml service.yaml ingress.yaml namespace.yaml
             }
-        }               
-    }   
+        }        
+    }
 }
-
+    
