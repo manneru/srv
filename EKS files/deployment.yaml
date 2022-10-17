@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name:  ststic
-  namespace: staticN
+  namespace: static-m
   labels:
     app:  static
 spec:
@@ -44,7 +44,7 @@ spec:
           periodSeconds: 10
         readinessProbe:
           httpGet:
-            path: /_status/healthz
+            path: /
             port: 80
           initialDelaySeconds: 5
           timeoutSeconds: 2
