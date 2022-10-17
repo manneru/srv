@@ -4,11 +4,8 @@ pipeline {
     stages {
         stage('dockerbuild') {
             steps {
-                #docker build image
                 sudo docker build -t 821151021325.dkr.ecr.ap-south-1.amazonaws.com/apache:$BUILD_NUMBER .
                 aws ecr get-login-password --region ap-south-1 | sudo docker login --username AWS --password-stdin 821151021325.dkr.ecr.ap-south-1.amazonaws.com
-                #push image
-                #push image to ecr
                 sudo docker push 821151021325.dkr.ecr.ap-south-1.amazonaws.com/apache:$BUILD_NUMBER
 
             }
