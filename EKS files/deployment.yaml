@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name:  ststic
-  namespace: static-m
+  namespace: staticm
   labels:
     app:  static
 spec:
