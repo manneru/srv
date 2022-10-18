@@ -19,7 +19,7 @@ pipeline {
                 sh '''
                 #apply kubectl
                 cd 'EKS files'/
-                kubectl apply -f deployment.yaml ingress.yaml namespace.yaml service.yaml
+                kubectl apply -f .
                 '''
             }
         }
