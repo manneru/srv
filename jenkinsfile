@@ -14,5 +14,14 @@ pipeline {
                 '''
             }
         }
+        stage('Eks deploy'){
+            steps{
+                sh '''
+                #apply kubectl
+                cd 'EKS files'/
+                kubectl apply -f deployment.yaml ingress.yaml namespace.yaml service.yaml
+                '''
+            }
+        }
     }
 }
